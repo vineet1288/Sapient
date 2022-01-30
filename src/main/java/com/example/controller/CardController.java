@@ -32,11 +32,11 @@ public class CardController {
 		System.out.println(card);
 		Optional<String> validate = this.validation.validateCard(card);
 		if(!validate.isEmpty()) {
-			logger.info("Validation failed for card number ", validate.get());
+			logger.info("Validation failed for card number", validate.get());
 			return new ResponseEntity<>(validate.get(), HttpStatus.BAD_REQUEST);
 		}
 		this.repository.save(card);
-		return new ResponseEntity<>("Details Added	", HttpStatus.OK);
+		return new ResponseEntity<>("Details Added", HttpStatus.OK);
 	}
 	
 	@GetMapping(path="/getAll" , produces = "application/json")

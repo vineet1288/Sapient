@@ -22,7 +22,7 @@ public class CardValidation {
 		try {
 			new BigDecimal(Optional.ofNullable(value).get());
 		} catch (NumberFormatException exception) {
-			return Optional.of("Invalid number ");
+			return Optional.of("Invalid number");
 		}
 		return Optional.empty();
 	}
