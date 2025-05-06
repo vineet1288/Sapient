@@ -1,0 +1,7 @@
+version: '3.8'
+
+services:
+  cards:
+    image: vineet1288/card:latest
+    ports:
+      - 8081:8081

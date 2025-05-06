@@ -58,11 +58,11 @@
 				<!--
 				enable below if you want to create image for the application -->
 				 <executions>
-                <execution>
-                    <goals>
-                        <goal>build-image</goal>
-                    </goals>
-                </execution>
+<!--                <execution>-->
+<!--                    <goals>-->
+<!--                        <goal>build-image</goal>-->
+<!--                    </goals>-->
+<!--                </execution>-->
 				 </executions>
                
 			</plugin>
