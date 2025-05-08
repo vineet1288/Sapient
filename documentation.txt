@@ -33,3 +33,27 @@ sample request :
   "balance": "0.00",
   "cardLimit": "120000.00"
 }
+
+
+
+##### Kafka
+1. Below images will be deployed
+
+CONTAINER ID   IMAGE                             COMMAND                  CREATED          STATUS          PORTS                                        NAMES
+f12f38edaab9   confluentinc/cp-kafka:latest      "/etc/confluent/dock…"   10 minutes ago   Up 10 minutes   0.0.0.0:9092->9092/tcp                       kafka
+658d7d42e421   confluentinc/cp-zookeeper:7.6.0   "/etc/confluent/dock…"   13 minutes ago   Up 13 minutes   2888/tcp, 0.0.0.0:2181->2181/tcp, 3888/tcp   zookeeper
+
+1.1 Go inside kafka container like docker exec -it kafka bash
+1.2 Create topic in /bin folder
+    kafka-topics --create --topic vineet --bootstrap-server localhost:9092
+1.3 Describe topic like
+    kafka-topics --describe --topic vineet --bootstrap-server localhost:9092
+1.4 Open producer to send messages like
+    kafka-console-producer --topic vineet --bootstrap-server localhost:9092
+
+2.0 Open another terminal in kafka like docker exec -it kafka bash
+2.1 Open consumer in /bin folder
+    kafka-console-consumer --topic vineet --from-beginning --bootstrap-server localhost:9092
+
+
+Good to Go : Send messages in producer terminal and you can see messages in consumer
