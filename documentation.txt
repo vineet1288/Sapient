@@ -57,3 +57,15 @@ f12f38edaab9   confluentinc/cp-kafka:latest      "/etc/confluent/dock…"   10 m
 
 
 Good to Go : Send messages in producer terminal and you can see messages in consumer
+
+
+#######PROMETHEUS AND GRAFANA
+
+1. Added prometheus and grafana support in this application.
+2. We need to add actuator and prometheus jar in order to start prometheus client within application.
+3. Add prometheus-config and grafana data source yamls file
+4. Update docker-compose to download and start images
+5. In order to connect prometheus server with card application (Application is runing in local machine instead of image then use host.docker.internal)
+6. Access
+    prometheus on http://localhost:9090/
+    Grafana on http://localhost:3000/
