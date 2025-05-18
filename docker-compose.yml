@@ -44,3 +44,8 @@ services:
     volumes:
       - ./grafana/provisioning/datasources:/etc/grafana/provisioning/datasources
 
+  mongoDb:
+    image: mongo
+    container_name: mongo
+    ports:
+      - "27017:27017"

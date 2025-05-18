@@ -1,0 +1,23 @@
+1. From the image which will be downloaded from docker-compose.yml
+  1.1 Will create separate mongo network
+        > docker network create mongoNet
+  1.2 Create 3 different container with name m1, m2, m3 on this network like
+        > docker run -d -p 30001:27017 --net mongoNet --name m1 mongo --replSet mongoSet
+        > docker run -d -p 30002:27017 --net mongoNet --name m2 mongo --replSet mongoSet
+        > docker run -d -p 30003:27017 --net mongoNet --name m3 mongo --replSet mongoSet
+
+
+        Here port and container name is different for each container.
+
+   1.3 Now will treat m1 as primary node (Primary Server), and in order to add m2 and m3 as secondary server
+       1.3.1 > Open m1 container like
+                docker exec -it m1 mongosh
+
+          1.3. create config to manage primary and secondary servers
+                 config = {"_id":"mongoNet","members":[{_id:0,host:"m1:27017"},{_id:1,host:"m2:27017"},{_id:2,host:"m3:27017"}]}
+                 > initialize configurations : rs.initiate(config)
+                 > check status rs.status()
+
+                    here you will see m1 as primary and rest others as secondary.
+
+       2. > now if you stop/delete primary container your primary will change automatically.
