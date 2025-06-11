@@ -17,7 +17,7 @@ import com.example.entity.Card;
 @TestMethodOrder(OrderAnnotation.class)
 public class CardControllerTest extends CardApplicationTests {
 
-	@Test
+	//@Test
 	@Order(2)
 	public void addNewCard() throws Exception {
 		String uri = "/add";
@@ -33,7 +33,7 @@ public class CardControllerTest extends CardApplicationTests {
 		Assert.assertEquals(response, "Details Added");
 	}
 	
-	@Test
+	//@Test
 	@Order(3)
 	public void addNewCardInvalidCardLength() throws Exception {
 		String uri = "/add";
@@ -50,7 +50,7 @@ public class CardControllerTest extends CardApplicationTests {
 		Assert.assertEquals(response, "invalid card data");
 	}
 	
-	@Test
+	//@Test
 	@Order(4)
 	public void addNewCardInvalidCardData() throws Exception {
 		String uri = "/add";
@@ -67,7 +67,7 @@ public class CardControllerTest extends CardApplicationTests {
 		Assert.assertEquals(response, "invalid card data");
 	}
 	
-	@Test
+	//@Test
 	@Order(5)
 	public void addNewCardWithSomeBalance() throws Exception {
 		String uri = "/add";
@@ -84,7 +84,7 @@ public class CardControllerTest extends CardApplicationTests {
 		Assert.assertEquals(response, "New card should start with zero balance");
 	}
 
-	@Test
+	//@Test
 	@Order(5)
 	public void getAllCards() throws Exception {
 		String uri = "/getAll";

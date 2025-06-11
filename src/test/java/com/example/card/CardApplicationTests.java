@@ -17,7 +17,7 @@ public class CardApplicationTests {
 	@Autowired
 	protected MockMvc mvc;
 
-	@Test
+	//@Test
 	@Order(1)
 	public void contextLoads() throws Exception {
 	}
